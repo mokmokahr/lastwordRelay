@@ -7,7 +7,11 @@
     <title>word game</title>
 </head>
 <body>
-    <p id="text"></p>
+    <p id="text"><=%result%></p>
+    <form action="/login/value" method="post">
+        <input type="text" placeholder="단어를 입력하세요" name="userWordInput">
+        <input type="submit" value="제출">
+    </form>
     <script src="index.js"></script>
 </body>
 </html>
