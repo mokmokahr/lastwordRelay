@@ -1,30 +1,33 @@
-const express = require("express");
-var bodyParser = require('body-parser');
+//import bodyParser from 'body-parser';
+import { Request, Response } from "express";
+
+const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
 
 let wordArr:string[] = [];
 
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.use(express.urlencoded({extended: true}));
 
-app.set('views', './views');
+//app.set('views', './views');
 app.set('view engine', 'ejs');
 
-app.get('/',(req: any,res: any) => { //home
+app.get('/',(req: Request,res: Response) => {    //home
     res.render("home");
 });
 
-app.get('/main',(req: any,res: any)=>{ //main
+app.get('/main',(req: Request,res: Response)=>{      //main
     res.render("main");
 });
 
-app.post('/login/value',(req: any, res: any)=>{ //request values
-    console.log(req.body);
-    console.log(req.body.userWordInput);
+app.post('/main/value',(req: Request, res: Response)=>{     //request values
     wordArr.push(req.body.userWordInput);
-    res.render("main",{result: wordArr});
+    res.render("main",{word:" wordArr.toString()"});
+    console.log(wordArr);
 });
 
 app.listen(3000,()=>{

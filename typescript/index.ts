@@ -1,7 +1,7 @@
 const title = document.querySelector('#text');
 if(title instanceof Object){
     title.innerHTML = "zz";
-    console.log(typeof(title));
+    console.log(title);
 }
 let allNumberArr:string[] = [];
 
